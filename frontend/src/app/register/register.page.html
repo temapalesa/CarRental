@@ -1,7 +1,52 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>register</ion-title>
-  </ion-toolbar>
-</ion-header>
+
 <ion-content>
+ <h1 class="head">Register</h1>
+  <form>
+    <div  class="ion-text-center">
+    <ion-card>
+     <ion-list>
+      <ion-item>
+        <ion-col size-md="3" size="6" class="ion-padding ion-blue-bkg">
+          <img class="image" 
+           src='../../assets/Screenshot_2023-03-27_at_14.47.09-removebg-preview.png' 
+            alt="Ionic logo"
+            loading="lazy"
+          />
+        </ion-col>
+        
+      </ion-item>
+
+    <ion-item>
+      <ion-label><ion-icon id="icon"  name="person"></ion-icon></ion-label>
+      <ion-input placeholder="Enter fullname"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label><ion-icon id="icon"  name="mail"></ion-icon>
+      </ion-label>
+      <ion-input placeholder="Enter email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label><ion-icon id="icon"  name="lock-closed"></ion-icon>
+      </ion-label>
+      <ion-input type="password"   placeholder="Enter password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label><ion-icon id="icon" name="lock-closed"></ion-icon>
+      </ion-label>
+      <ion-input type="password" placeholder="Confirm password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <button id="btn" shape="round" color="primary"  size="default" type="button">Register</button>
+    </ion-item>
+    <div>
+      <p>Already have an account?</p>
+    </div>
+    <div>
+      <p [routerLink]="['/login']" routerLinkActive="router-link-active" class="text-center" id="login">Login</p>
+    </div>
+  </ion-list>
+</ion-card>
+    </div>
+</form>
+ 
 </ion-content>
