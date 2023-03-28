@@ -1,9 +1,11 @@
 const  bcrypt  =  require("bcrypt");
 const  jwt  =  require("jsonwebtoken");
-const pool = require('../config/dbConfig');
+const pool = require('../../config/dbConfig');
 
 const register  =  async (req, res) => {
-    const { fullname, email, password, phonenumber, address, userType } =  req.body;
+
+    console.log(req.body)
+    const { fullname, email, password, userType ,phonenumber,address} =  req.body;
 
     try {
         const  data  =  await pool.query(`SELECT * FROM public.users WHERE email= $1;`, [email]); //Checking if user already exists
@@ -32,7 +34,7 @@ const register  =  async (req, res) => {
             var  flag  =  1; //Declaring a flag
 
             //Inserting data into the database
-            if(user.fullname !==  null && user.fullname && user.email !==  null && user.email !==  '' && user.phonenumber !==  null && user.phonenumber !==  '' && user.password !==  null && user.password !==  '' && user.userType !== '' && user.userType !== null)
+            if(user.fullname !==  null && user.fullname !== '' && user.email !==  null && user.email !==  '' && user.password !==  null && user.password !==  '' && user.userType !== '' && user.userType !== null)
             {
                 pool.query(`INSERT INTO public."users"(fullname,email,password,phonenumber,address,"userType") VALUES ($1,$2,$3,$4,$5,$6);`, [user.fullname,user.email,user.password,user.phonenumber,user.address,user.userType], (err) => {
                     if (err) {
