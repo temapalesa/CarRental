@@ -1,7 +1,7 @@
 
 <ion-content>
   <h1 class="head">Login</h1>
-  <form>
+  <form [formGroup]="UserLoginForm">
     <div class="ion-text-center">
        <ion-card>
      <ion-list>
@@ -18,22 +18,22 @@
 
     <ion-item>
       <ion-label><ion-icon id="icon" name="mail"></ion-icon></ion-label>
-      <ion-input placeholder="Enter email"></ion-input>
+      <ion-input placeholder="Enter email" formControlName="email"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label><ion-icon id="icon" name="lock-closed"></ion-icon>
       </ion-label>
-      <ion-input type="password" placeholder="Enter password"></ion-input>
+      <ion-input type="password" placeholder="Enter password" formControlName="password"></ion-input>
     </ion-item>
     <div class="ion-text-center">
-       <button type="button" id="btn" shape="round" size="large" color="primary" class="button">Login</button>
+       <button (click)="login()" type="button" id="btn" shape="round" size="large" color="primary" class="button">Login</button>
     </div>
     <div>
       <p>Don't have an account? </p>
   
     </div>
 
-    <div>
+    <div class="text-center">
   
       <p id="login" [routerLink]="['/register']" routerLinkActive="router-link-active" >Register</p>
     </div>
